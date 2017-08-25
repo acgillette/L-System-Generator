@@ -22,16 +22,17 @@
   camera.position.z = 5;
 
   var plant = new Plant();
+  
+  function generate() {
+    plant.generate();
+    scene.add(plant.line);
+    console.log(plant.sentence);
+  }
 
-function generate() {
-  plant.generate();
-  scene.add(plant.line);
-}
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+  }
 
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-}
-
-gui();
-animate();
+  gui();
+  animate();
