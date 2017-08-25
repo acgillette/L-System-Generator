@@ -10,26 +10,33 @@ var data = {
         b: "F+FF-FF-F-F+F+FF-F-F+F+FF+FF-F"
       }
     ],
-    len: 50,
+    len: 200,
     n: 2
   }
 };
+var bgcolor;
 
-
+function getRandomColor() {
+  var hue = Math.floor(Math.random() * 360);
+  var pastel = "hsl(" + hue + ", 100%, 87.5%)";
+  return pastel;
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(51);
+  background(getRandomColor());
 
 
   gui = createGui('L-System Visualizer');
   gui.addGlobals('systems');
+  gui.addButton('Change background color', getRandomColor);
+
 
   noLoop();
 }
 
 function draw() {
-  background(51);
+  background(getRandomColor());
   switch(systems) {
     case 'Koch Island':
       var system = new LSystem(data.island);

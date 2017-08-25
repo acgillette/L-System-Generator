@@ -28,16 +28,17 @@ class LSystem {
           }
         }
         this.sentence = nextSentence;
-        this.drawSystem();
+
         this.len *= 0.25;
       }
+      this.drawSystem();
+
+
   }
 
   drawSystem() {
-    background(51);
     resetMatrix();
     translate(width/4, height/1.30);
-    stroke(255);
     for(var i = 0; i < this.sentence.length; i++) {
       var current = this.sentence.charAt(i);
 
