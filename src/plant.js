@@ -1,6 +1,6 @@
 var THREE = require('three');
 
-export default class Test {
+export default class Plant {
   constructor() {
     this.material = new THREE.LineBasicMaterial({
   	color:  0xffffff
