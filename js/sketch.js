@@ -1,16 +1,18 @@
 var gui;
 var systems = ['Koch Island', 'Koch Triangle', 'Koch Islands and Lakes', 'Gosper Curve'];
 var data = {
-  axiom: "F-F-F-F",
-  angle: 90,
-  rules: [
-    ruleOne = {
-      a: "F",
-      b: "F+FF-FF-F-F+F+FF-F-F+F+FF+FF-F"
-    }
-  ],
-  len: 50,
-  n: 2
+  island: {
+    axiom: "F-F-F-F",
+    angle: 90,
+    rules: [
+      ruleOne = {
+        a: "F",
+        b: "F+FF-FF-F-F+F+FF-F-F+F+FF+FF-F"
+      }
+    ],
+    len: 50,
+    n: 2
+  }
 };
 
 
@@ -30,7 +32,7 @@ function draw() {
   background(51);
   switch(systems) {
     case 'Koch Island':
-      var system = new LSystem(data);
+      var system = new LSystem(data.island);
       system.generateSentence();
       break;
     default:
