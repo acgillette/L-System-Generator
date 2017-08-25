@@ -1,4 +1,3 @@
-var LSystem = require('./lsystem.js');
 
 function setup() {
   createCanvas(500, 500);
@@ -9,5 +8,5 @@ function setup() {
 }
 
 function draw() {
-
+  
 }
