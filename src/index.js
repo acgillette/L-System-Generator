@@ -2,10 +2,12 @@
   var QuickSettings = require('quicksettings');
   import Plant from './plant.js';
 
-  var settings = QuickSettings.create(10, 10, "Plant Visualizer");
-  settings.addButton("Generate", generate);
 
-  var plant = new Plant();
+  function gui() {
+    var settings = QuickSettings.create(10, 10, "Plant Visualizer");
+    settings.addButton("Generate", generate);
+  }
+
   var scene = new THREE.Scene();
 
   var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -16,19 +18,20 @@
 
   document.body.appendChild(renderer.domElement);
 
-  scene.add(plant.line);
 
   camera.position.z = 5;
 
+  var plant = new Plant();
+
 function generate() {
-  console.log("button");
+  plant.generate();
+  scene.add(plant.line);
 }
 
 function animate() {
   requestAnimationFrame(animate);
-  camera.lookAt(plant.line.position);
-
   renderer.render(scene, camera);
 }
 
+gui();
 animate();
