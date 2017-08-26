@@ -22,15 +22,18 @@
   camera.position.z = 5;
 
   var plant = new Plant();
-  
+  plant.generate();
+  scene.add(plant.line);
+
   function generate() {
-    plant.generate();
-    scene.add(plant.line);
-    console.log(plant.sentence);
+    console.log("hi");
   }
 
   function animate() {
     requestAnimationFrame(animate);
+    // plant.line.rotation.y += 0.01;
+    camera.lookAt(plant.line.position);
+
     renderer.render(scene, camera);
   }
 
