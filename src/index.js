@@ -1,18 +1,18 @@
-  var THREE = require('three');
-  var QuickSettings = require('quicksettings');
+  const THREE = require('three');
+  const QuickSettings = require('quicksettings');
   import Plant from './plant.js';
 
 
   function gui() {
-    var settings = QuickSettings.create(10, 10, "Plant Visualizer");
+    const settings = QuickSettings.create(10, 10, "Plant Visualizer");
     settings.addButton("Generate", generate);
   }
 
-  var scene = new THREE.Scene();
+  const scene = new THREE.Scene();
 
-  var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-  var renderer = new THREE.WebGLRenderer();
+  const renderer = new THREE.WebGLRenderer();
 
   renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -21,9 +21,8 @@
 
   camera.position.z = 5;
 
-  var plant = new Plant();
+  const plant = new Plant();
   plant.generate();
-  scene.add(plant.line);
 
   function generate() {
     console.log("hi");
@@ -32,7 +31,7 @@
   function animate() {
     requestAnimationFrame(animate);
     // plant.line.rotation.y += 0.01;
-    camera.lookAt(plant.line.position);
+    // camera.lookAt(plant.line.position);
 
     renderer.render(scene, camera);
   }
